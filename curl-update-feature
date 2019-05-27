@@ -1,0 +1,14 @@
+curl "https://api.mapbox.com/datasets/v1/p3t3/{dataset_id}/features/{feature_id}?access_token=YOUR_MAPBOX_ACCESS_TOKEN
+
+This endpoint requires a token with datasets:write scope. Use the one i created with everything
+
+
+{dataset_id} comes from the datasets page in studio. Look for the dots menu
+{feature_id} this comes from the dataset page. select the feature and it shows in the bottom left.
+
+curl "https://api.mapbox.com/datasets/v1/p3t3/cjw6dtp8t00a72oo0x5t4ntoi/features/0?access_token=YOUR_MAPBOX_ACCESS_TOKEN
+
+" \
+  -X PUT \
+  -H "Content-Type: application/json" \
+  -d @updating.geojson
