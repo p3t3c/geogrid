@@ -1,7 +1,7 @@
 # GeoPy can be used to interface to map box https://pypi.org/project/geopy/
 from pygeodesy.ellipsoidalVincenty import LatLon
 from geojson import Polygon, Feature, FeatureCollection, dump
-
+import sys
 
 BEARING_SOUTH = 180.0
 BEARING_EAST = 90.0
@@ -96,10 +96,6 @@ def main():
 
     grid = generate_cell_grid(TOP_LEFT, EAST_EXTENT, SOUT_EXTENT, CELL_LAT_SIZE_METERS, CELL_LONG_SIZE_METERS)
 
-    # for cell in grid:
-    #     print (cell)
-
-    import sys
     geojson_feature_collection = grid_to_geojson(grid)
     dump(geojson_feature_collection, sys.stdout, indent=4)
 
