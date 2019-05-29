@@ -2,6 +2,7 @@
 from pygeodesy.ellipsoidalVincenty import LatLon
 from geojson import Polygon, Feature, FeatureCollection, dump
 import sys
+import random
 
 BEARING_SOUTH = 180.0
 BEARING_EAST = 90.0
@@ -74,8 +75,7 @@ def grid_to_geojson(grid):
             ]
         ]
         properties = {
-            'capacity': 3,
-            'example' : 'yes it is'
+            'capacity': random.randint(0, 5)
         } # TODO this is just an example
 
         polygon = Polygon(rect_points)
@@ -99,7 +99,7 @@ def main():
     geojson_feature_collection = grid_to_geojson(grid)
     dump(geojson_feature_collection, sys.stdout, indent=4)
 
-    json_file = open('grid.json', 'w')
+    json_file = open('grid.geojson', 'w')
     dump(geojson_feature_collection, json_file, indent=4)
 
 
